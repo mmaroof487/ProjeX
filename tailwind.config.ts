@@ -3,7 +3,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 import typography from "@tailwindcss/typography";
 
 const config: Config = {
-	darkMode: "class",
+	darkMode: ["class"],
 	content: ["./pages/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}", "./sanity/**/*.{js,ts,jsx,tsx,mdx}"],
 	theme: {
 		extend: {
@@ -12,18 +12,18 @@ const config: Config = {
 			},
 			colors: {
 				primary: {
-					100: "#FFE8F0",
-					DEFAULT: "#EE2B69",
+					"100": "#5EE9FF",
+					DEFAULT: "#00BFFF",
 				},
 				secondary: "#FBE843",
 				black: {
-					100: "#333333",
-					200: "#141413",
-					300: "#7D8087",
+					"100": "#333333",
+					"200": "#141413",
+					"300": "#7D8087",
 					DEFAULT: "#000000",
 				},
 				white: {
-					100: "#F7F7F7",
+					"100": "#F7F7F7",
 					DEFAULT: "#FFFFFF",
 				},
 			},
