@@ -15,6 +15,7 @@ const config: Config = {
 					"100": "#5EE9FF",
 					DEFAULT: "#00BFFF",
 				},
+				pinkprimary: "#EE2B69",
 				secondary: "#FBE843",
 				black: {
 					"100": "#333333",
