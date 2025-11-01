@@ -13,12 +13,11 @@ import { useRouter } from "next/navigation";
 import { createPitch } from "@/lib/actions";
 import { Animate } from "./ui/Motion";
 
-const StartupForm = () => {
+const ProjectForm = () => {
 	const [errors, setErrors] = useState<Record<string, string>>({});
 	const [pitch, setPitch] = useState("");
 	const { toast } = useToast();
 	const router = useRouter();
-
 	const handleFormSubmit = async (prevState: FormData, formData: FormData) => {
 		try {
 			const formValues = {
@@ -36,10 +35,10 @@ const StartupForm = () => {
 			if (result.status == "SUCCESS") {
 				toast({
 					title: "Success",
-					description: "Your startup pitch has been created successfully",
+					description: "Your project pitch has been created successfully",
 				});
 
-				router.push(`/startup/${result._id}`);
+				router.push(`/project/${result._id}`);
 			}
 
 			return result;
@@ -78,13 +77,13 @@ const StartupForm = () => {
 	});
 
 	return (
-		<form action={formAction} className="startup-form">
-			<Animate>
+		<Animate>
+			<form action={formAction} className="startup-form">
 				<div>
 					<label htmlFor="title" className="startup-form_label">
 						Title
 					</label>
-					<Input id="title" name="title" className="startup-form_input" required placeholder="Startup Title" />
+					<Input id="title" name="title" className="startup-form_input" required placeholder="Project Title" />
 
 					{errors.title && <p className="startup-form_error">{errors.title}</p>}
 				</div>
@@ -93,7 +92,7 @@ const StartupForm = () => {
 					<label htmlFor="description" className="startup-form_label">
 						Description
 					</label>
-					<Textarea id="description" name="description" className="startup-form_textarea" required placeholder="Startup Description" />
+					<Textarea id="description" name="description" className="startup-form_textarea" required placeholder="Project Description" />
 
 					{errors.description && <p className="startup-form_error">{errors.description}</p>}
 				</div>
@@ -102,7 +101,7 @@ const StartupForm = () => {
 					<label htmlFor="category" className="startup-form_label">
 						Category
 					</label>
-					<Input id="category" name="category" className="startup-form_input" required placeholder="Startup Category (Tech, Health, Education...)" />
+					<Input id="category" name="category" className="startup-form_input" required placeholder="Project Category (Tech, Health, Education...)" />
 
 					{errors.category && <p className="startup-form_error">{errors.category}</p>}
 				</div>
@@ -111,7 +110,7 @@ const StartupForm = () => {
 					<label htmlFor="link" className="startup-form_label">
 						Image URL
 					</label>
-					<Input id="link" name="link" className="startup-form_input" required placeholder="Startup Image URL" />
+					<Input id="link" name="link" className="startup-form_input" required placeholder="Project Image URL" />
 
 					{errors.link && <p className="startup-form_error">{errors.link}</p>}
 				</div>
@@ -123,7 +122,7 @@ const StartupForm = () => {
 
 					<MDEditor
 						value={pitch}
-						onChange={(value: any) => setPitch(value as string)}
+						onChange={(value?: string) => setPitch(value as string)}
 						id="pitch"
 						preview="edit"
 						height={300}
@@ -137,15 +136,16 @@ const StartupForm = () => {
 					/>
 
 					{errors.pitch && <p className="startup-form_error">{errors.pitch}</p>}
+					{state.status === "ERROR" && <p className="startup-form_error">{state.error}</p>}
 				</div>
 
 				<Button type="submit" className="startup-form_btn text-white" disabled={isPending}>
 					{isPending ? "Submitting..." : "Submit Your Pitch"}
 					<Send className="size-6 ml-2" />
 				</Button>
-			</Animate>
-		</form>
+			</form>
+		</Animate>
 	);
 };
 
-export default StartupForm;
+export default ProjectForm;

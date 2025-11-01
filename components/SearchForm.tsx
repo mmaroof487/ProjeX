@@ -6,8 +6,8 @@ import { Animate } from "./ui/Motion";
 
 const SearchForm = ({ query }: { query?: string }) => {
 	return (
-		<search className="w-6/12 m-auto">
-			<Animate iy={-50} d={1}>
+		<search className="w-6/12 m-auto max-sm:w-full">
+			<Animate iy={-50}>
 				<form action="/" className="search-form">
 					<input name="query" className="search-input" placeholder="Search Projects by title, author, category, etc." defaultValue={query} />
 					<div className="flex gap-2">
