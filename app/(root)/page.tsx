@@ -3,18 +3,16 @@ import { getProjects } from "@/sanity/lib/query";
 import ProjectCard, { ProjectTypeCard } from "@/components/ProjectCard";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { Animate } from "@/components/ui/Motion";
-import { auth } from "@/auth";
+import PlaylistProjects from "@/components/PlaylistProjects";
 
 const Home = async ({ searchParams }: { searchParams: { query?: string } }) => {
 	const query = (await searchParams)?.query ?? "";
 	const params = { search: query || null };
 	const { data: posts } = await sanityFetch({ query: getProjects, params });
-	const session = await auth();
-	console.log(session?.id);
 	return (
 		<>
 			<section className="pink_container">
-				<Animate iy={50} d={1}>
+				<Animate iy={50}>
 					<h1 className="heading">
 						Pitch Your Project <br /> Connect with people that want to collab!
 					</h1>
@@ -27,6 +25,7 @@ const Home = async ({ searchParams }: { searchParams: { query?: string } }) => {
 				<ul className="mt-2 card_grid ">{posts?.length > 0 ? posts.map((post: ProjectTypeCard) => <ProjectCard key={post._id} post={post} />) : <p className="no-results">No results found</p>}</ul>
 			</section>
 			<SanityLive />
+			<PlaylistProjects/>
 		</>
 	);
 };
