@@ -1,14 +1,16 @@
-import SearchForm from "@/components/ui/SearchForm";
+import SearchForm from "@/components/SearchForm";
 import { getProjects } from "@/sanity/lib/query";
-import ProjectCard, { ProjectTypeCard } from "@/components/ui/ProjectCard";
+import ProjectCard, { ProjectTypeCard } from "@/components/ProjectCard";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { Animate } from "@/components/ui/Motion";
+import { auth } from "@/auth";
 
 const Home = async ({ searchParams }: { searchParams: { query?: string } }) => {
 	const query = (await searchParams)?.query ?? "";
 	const params = { search: query || null };
 	const { data: posts } = await sanityFetch({ query: getProjects, params });
-
+	const session = await auth();
+	console.log(session?.id);
 	return (
 		<>
 			<section className="pink_container">

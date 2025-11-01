@@ -67,6 +67,10 @@
 		@apply px-6 py-10 max-w-7xl mx-auto;
 	}
 
+	.section_container_project {
+		@apply py-10 max-w-full flex  justify-between gap-8;
+	}
+
 	.card_grid {
 		@apply grid md:grid-cols-3 sm:grid-cols-2 gap-5;
 	}
@@ -199,7 +203,8 @@
 	}
 
 	.pattern {
-		background-image: linear-gradient(to right, transparent 49.5%, rgba(251, 232, 67, 0.2) 49.5%, rgba(251, 232, 67, 0.6) 50.5%, transparent 50.5%);
+		/* background-image: linear-gradient(to right, transparent 49.5%, rgba(251, 232, 67, 0.2) 49.5%, rgba(251, 232, 67, 0.6) 50.5%, transparent 50.5%); */
+		background-image: linear-gradient(to right, transparent 49.5%, #f94780 49.5%, #ffffff 50.5%, transparent 50.5%);
 		background-size: 5% 100%;
 		background-position: center;
 		background-repeat: repeat-x;

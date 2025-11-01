@@ -4,8 +4,7 @@ import { Eye } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Author, Project } from "@/sanity/types";
-import { motion } from "framer-motion";
-import { Animate } from "./Motion";
+import { Animate } from "./ui/Motion";
 
 export type ProjectTypeCard = Omit<Project, "author"> & { author?: Author };
 
@@ -26,13 +25,13 @@ const ProjectCard = ({ post }: { post: ProjectTypeCard }) => {
 						<Link href={`/user/${author?._id}`}>
 							<p className="text-16-medium line-clamp-1">{author?.name}</p>
 						</Link>
-						<Link href={`/startup/${_id}`}>
+						<Link href={`/project/${_id}`}>
 							<h3 className="text-26-semibold line-clamp-1">{title}</h3>
 						</Link>
 					</div>
 					<Link href={`/user/${author?._id}`}>{/* <Image src={author?.image?.asset?._ref} alt={author?.name} width={48} height={48} className="rounded-all w-auto h-auto" /> */}</Link>
 				</div>
-				<Link href={`/startup/${_id}`}>
+				<Link href={`/project/${_id}`}>
 					<p className="startup-card-sec">{description}</p>
 					{image ? (
 						<Image src={typeof image === "string" ? image : "/placeholder.png"} alt={title ?? "project image"} className="startup-card_img w-auto h-auto" width={200} height={400} />
@@ -40,12 +39,12 @@ const ProjectCard = ({ post }: { post: ProjectTypeCard }) => {
 						<div className="startup-card_img w-[200px] h-[400px] bg-gray-100 flex items-center justify-center text-sm text-gray-500">No image</div>
 					)}
 				</Link>
-				<div className="flex-between-gap-3 mt-5">
+				<div className="flex  justify-between mt-5 ">
 					<Link href={`/?query=${category?.toLowerCase()}`}>
 						<p className="text-16-medium">{category}</p>
 					</Link>
-					<button className="starup-card-btn">
-						<Link href={`/startup/${_id}`}>Details</Link>
+					<button className="startup-card_btn">
+						<Link href={`/project/${_id}`}>Details</Link>
 					</button>
 				</div>
 			</li>

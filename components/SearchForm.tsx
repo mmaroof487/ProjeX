@@ -2,7 +2,7 @@
 import React from "react";
 import SearchFormReset from "./SearchFormReset";
 import { Search } from "lucide-react";
-import { Animate } from "./Motion";
+import { Animate } from "./ui/Motion";
 
 const SearchForm = ({ query }: { query?: string }) => {
 	return (

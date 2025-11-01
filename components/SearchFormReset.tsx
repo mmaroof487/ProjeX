@@ -2,7 +2,7 @@
 
 import { X } from "lucide-react";
 import Link from "next/link";
-import { Animate } from "./Motion";
+import { Animate } from "./ui/Motion";
 
 const SearchFormReset = () => {
 	const reset = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { auth, signIn, signOut } from "@/auth";
-import { Animate } from "./Motion";
+import { Animate } from "./ui/Motion";
 import Image from "next/image";
 
 const Navbar = async () => {
