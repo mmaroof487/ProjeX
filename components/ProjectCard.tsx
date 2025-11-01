@@ -1,10 +1,12 @@
 "use client";
+import { cn } from "@/lib/utils";
 import React from "react";
 import { Eye } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Author, Project } from "@/sanity/types";
 import { Animate } from "./ui/Motion";
+import { Skeleton } from "./ui/skeleton";
 
 export type ProjectTypeCard = Omit<Project, "author"> & { author?: Author };
 
@@ -32,7 +34,9 @@ const ProjectCard = ({ post }: { post: ProjectTypeCard }) => {
 					<Link href={`/user/${author?._id}`}>{/* <Image src={author?.image?.asset?._ref} alt={author?.name} width={48} height={48} className="rounded-all w-auto h-auto" /> */}</Link>
 				</div>
 				<Link href={`/project/${_id}`}>
-					<p className="startup-card-sec">{description}</p>
+					<p className="startup-card-sec">
+						{description?.slice(0, 90)} <span className="text-gray-500">.....Read more</span>
+					</p>
 					{image ? (
 						<Image src={typeof image === "string" ? image : "/placeholder.png"} alt={title ?? "project image"} className="startup-card_img w-auto h-auto" width={200} height={400} />
 					) : (
@@ -51,5 +55,15 @@ const ProjectCard = ({ post }: { post: ProjectTypeCard }) => {
 		</Animate>
 	);
 };
+
+export const ProjectCardSkeleton = () => (
+	<>
+		{[0, 1, 2, 3, 4].map((index: number) => (
+			<li key={cn("skeleton", index)}>
+				<Skeleton className="startup-card_skeleton" />
+			</li>
+		))}
+	</>
+);
 
 export default ProjectCard;

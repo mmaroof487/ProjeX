@@ -7,10 +7,10 @@ export const writeClient = createClient({
 	projectId,
 	dataset,
 	apiVersion,
-	useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+	useCdn: false,
 	token,
 });
 
 if (!writeClient.config().token) {
-	throw new Error("Write token not found");
+	throw new Error("Write token not found.");
 }
