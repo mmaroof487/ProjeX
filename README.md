@@ -1,37 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ProjeX 🚀
 
-## Getting Started
+A modern platform for developers to upload, showcase, and discover innovative projects — built using **Next.js 15**, **React 19**, **Sanity CMS**, **Tailwind CSS**, and **NextAuth.js**.  
+Share your work, explore others’, and connect with the tech community in real time.
 
-First, run the development server:
+## 🚧 Live Demo  
+[projex‑hodo.onrender.com](https://projex-hodo.onrender.com)  
+> Explore the live platform to see how projects are listed, showcased & interacted with.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🧩 Tech Stack  
+- **Frontend & Framework**: Next.js 15 + React 19  
+- **Styling**: Tailwind CSS  
+- **Content / Data**: Sanity CMS (for storing project metadata, user profiles, etc.)  
+- **Authentication**: NextAuth.js  
+- **Language**: TypeScript  
+- **Others**: GROQ (for Sanity queries), configured for modern web dev best‑practices.
+
+## 📂 Project Structure  
+```
+│  README.md
+│  next.config.ts
+│  tailwind.config.ts
+│  tsconfig.json
+│
+├─ app/                  # Next.js “app” directory – main pages & layout
+├─ components/           # Reusable React UI components
+├─ hooks/                # Custom hooks
+├─ lib/                  # Utility functions, API clients, etc.
+├─ public/               # Static assets (images, icons, etc.)
+└─ sanity/               # Sanity CMS setup (schemas, config)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Getting Started  
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/mmaroof487/ProjeX.git
+   cd ProjeX
+   ```
+2. Install dependencies  
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+3. Configure environment variables (you’ll need at least):  
+   ```env
+   NEXTAUTH_URL=…
+   NEXTAUTH_SECRET=…
+   SANITY_PROJECT_ID=…
+   SANITY_DATASET=…
+   SANITY_API_TOKEN=…
+   ```
+4. Run development server  
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✅ Key Features  
+- User signup/login via NextAuth.js  
+- Dashboard for developers to upload & manage their projects  
+- Browse & discover other developers’ projects  
+- Responsive UI styled with Tailwind CSS  
+- CMS‑driven content via Sanity for dynamic updates  
+- Full TypeScript support for safety & scalability  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧭 Roadmap & Future Enhancements  
+- 🔧 Feature: comments & community interactions on projects  
+- 🎨 Feature: theme switcher (dark/light mode)  
+- 📱 Feature: Mobile‑first improvements, perhaps a PWA experience  
+- 📦 Improvements: CI/CD, automated tests, code linting/enforcement  
+- 🔑 Authentication: Google and Direct Mail login options  
+- 🪲 Bug Reporting: Integrated Sentry button for easy bug reporting  
+- 🌐 Project Links: Option to add GitHub repository and live project URL  
+- ⚠️ UX Fix: Prevent full form reset on single field validation error  
+- 🧱 UI Improvement: Redesigned card layout on the home screen  
+- ➕ Enhancement: “Show more / Show less” option for displaying additional project cards  
+ 
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ProjeX
