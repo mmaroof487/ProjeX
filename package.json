@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "eslint",
 		"predev": "npm run typegen",
-		"prebuild": "npm run typegen",
+		"prebuild": "echo 'Skipping Sanity typegen on Render'",
 		"typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
 	},
 	"dependencies": {
