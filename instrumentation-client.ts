@@ -6,12 +6,9 @@ import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
 	dsn: "https://87ea92a439d64839923a0235128881ec@o4510290958811136.ingest.de.sentry.io/4510290962939984",
+	integrations: [Sentry.browserTracingIntegration()],
+	tracesSampleRate: 1.0,
 
-	// Add optional integrations for additional features
-	integrations: [Sentry.replayIntegration()],
-
-	// Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
-	tracesSampleRate: 1,
 	// Enable logs to be sent to Sentry
 	enableLogs: true,
 
